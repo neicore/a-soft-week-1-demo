@@ -5,11 +5,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.demo.subjectTeacherCard.SubjectTeacherCard
+import androidx.compose.ui.graphics.Color
+import com.example.demo.customTooltip.CustomTooltip
+import com.example.demo.icons.Info
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -37,7 +41,15 @@ fun App() {
 
 
 //        Subject Teacher Card
-        SubjectTeacherCard()
+//        RoleCard()
+        CustomTooltip(
+            tooltipContent = { Text("Tooltip text", color = Color.White) },
+            trigger = {
+                Icon(
+                    imageVector = Info,
+                    contentDescription = "Info"
+                )
+            })
     }
 }
 

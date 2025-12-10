@@ -1,4 +1,4 @@
-package com.example.demo.subjectTeacherCard
+package com.example.demo.roleCard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -29,7 +29,7 @@ val Stats = listOf(
 
 @Composable
 @Preview
-fun SubjectTeacherCard(modifier: Modifier = Modifier) =
+fun RoleCard(modifier: Modifier = Modifier) =
     SelectionContainer {
         Column(
             verticalArrangement = Arrangement.spacedBy(16.dp),

@@ -1,4 +1,4 @@
-package com.example.demo.subjectTeacherCard
+package com.example.demo.roleCard
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text

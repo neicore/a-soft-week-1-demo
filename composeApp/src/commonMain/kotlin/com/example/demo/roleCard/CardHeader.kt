@@ -1,4 +1,4 @@
-package com.example.demo.subjectTeacherCard
+package com.example.demo.roleCard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -10,10 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.DisableSelection
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import com.example.demo.icons.Info
 import com.example.demo.icons.More
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CardHeader(title: String, infoText: String? = null, modifier: Modifier = Modifier) =
     Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = modifier) {
@@ -31,14 +29,24 @@ fun CardHeader(title: String, infoText: String? = null, modifier: Modifier = Mod
 
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
             Text(text = title, fontSize = 20.sp, color = Color.White)
+            val tooltipState = rememberTooltipState()
+
 
             infoText?.takeIf { it.isNotEmpty() }?.let {
-                Icon(
-                    imageVector = Info,
-                    contentDescription = "Info Icon",
-                    tint = Color(0xFFAC7E4C),
-                    modifier = Modifier.size(17.dp)
-                )
+                TooltipBox(
+                    tooltip = { Text(text = "Hello") },
+                    positionProvider = TooltipDefaults.rememberTooltipPositionProvider(
+                        positioning = TooltipAnchorPosition.Above,
+                    ),
+                    state = tooltipState,
+                ) {
+                    Icon(
+                        imageVector = Info,
+                        contentDescription = "Info Icon",
+                        tint = Color(0xFFAC7E4C),
+                        modifier = Modifier.size(17.dp)
+                    )
+                }
             }
         }
 

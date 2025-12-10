@@ -1,4 +1,4 @@
-package com.example.demo.subjectTeacherCard
+package com.example.demo.roleCard
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.FlowRow
