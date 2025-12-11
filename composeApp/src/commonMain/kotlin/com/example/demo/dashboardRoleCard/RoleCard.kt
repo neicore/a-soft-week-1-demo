@@ -1,4 +1,4 @@
-package com.example.demo.roleCard
+package com.example.demo.dashboardRoleCard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

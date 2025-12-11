@@ -1,4 +1,4 @@
-package com.example.demo.roleCard
+package com.example.demo.dashboardRoleCard
 import androidx.compose.ui.graphics.vector.ImageVector
 
 data class Stat(

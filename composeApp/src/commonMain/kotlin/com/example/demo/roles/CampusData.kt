@@ -1,4 +1,4 @@
-package com.example.demo.campus
+package com.example.demo.roles
 
 data class CampusData(
     val campusName: String,

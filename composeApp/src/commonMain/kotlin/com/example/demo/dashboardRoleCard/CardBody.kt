@@ -1,4 +1,4 @@
-package com.example.demo.roleCard
+package com.example.demo.dashboardRoleCard
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
