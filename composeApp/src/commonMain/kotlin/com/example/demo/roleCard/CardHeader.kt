@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.demo.icons.Info
-import com.example.demo.icons.More
+import com.example.demo.icons.MoreIcon
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,7 +52,7 @@ fun CardHeader(title: String, infoText: String? = null, modifier: Modifier = Mod
 
         Box {
             Icon(
-                imageVector = More,
+                imageVector = MoreIcon,
                 contentDescription = "More icon",
                 tint = Color(0xFF999AAC),
                 modifier = Modifier.size(24.dp).clickable { openDropdown = true })

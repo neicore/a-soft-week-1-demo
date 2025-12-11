@@ -1,55 +1,52 @@
 package com.example.demo
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.demo.customTooltip.CustomTooltip
-import com.example.demo.icons.Info
+import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.ui.tooling.preview.Preview
+
+val Campuses = listOf(
+    CampusData(campusName = "Sunrise Campus", rolesCount = 25),
+    CampusData(campusName = "Riverfront Campus", rolesCount = 33),
+    CampusData(campusName = "Mountain View Campus", rolesCount = 17),
+    CampusData(campusName = "Oceanfront Campus", rolesCount = 21),
+    CampusData(campusName = "Forest Hill Campus", rolesCount = 14),
+    CampusData(campusName = "Urban Center", rolesCount = 46)
+)
 
 @Composable
 @Preview
 fun App() {
     Column(
-        modifier = Modifier.background(MaterialTheme.colorScheme.background).safeContentPadding().fillMaxSize(),
+        modifier = Modifier.background(Color(0xFF161616)).safeContentPadding().fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-//        Birthday card project
-//        GreetingImage(message = "Happy Birthday, Sam!", from = "From Emma")
-
-//        Compose article
-//        Article(modifier = Modifier.fillMaxHeight())
-
-//        Task Manager
-//        TaskCompletionScreen(modifier = Modifier.fillMaxHeight())
-
-//        Compose Quadrant
-//        Quadrant(modifier = Modifier.fillMaxSize())
-
-//        Business Card
-//        BusinessCard(modifier = Modifier)
-
-
-//        Subject Teacher Card
-//        RoleCard()
-        CustomTooltip(
-            tooltipContent = { Text("Tooltip text", color = Color.White) },
-            trigger = {
-                Icon(
-                    imageVector = Info,
-                    contentDescription = "Info"
+        Column(modifier = Modifier.padding(8.dp).background(Color(0xFF191F29))) {
+            Campuses.forEach { (campusName, rolesCount) ->
+                Campus(
+                    campusName = campusName,
+                    rolesCount = rolesCount,
+                    onClick = {},
+                    onClickMore = {},
+                    onClickPlus = {},
                 )
-            })
+            }
+        }
+
+//        RoleCard()
+//        CustomTooltip(
+//            tooltipContent = { Text("Tooltip text", color = Color.White) },
+//            trigger = {
+//                Icon(
+//                    imageVector = Info,
+//                    contentDescription = "Info"
+//                )
+//            })
     }
 }
 

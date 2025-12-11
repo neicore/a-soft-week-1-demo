@@ -8,12 +8,12 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
-val More: ImageVector
+val MoreIcon: ImageVector
     get() {
-        if (_More != null) return _More!!
+        if (_MoreIcon != null) return _MoreIcon!!
 
-        _More = ImageVector.Builder(
-            name = "More",
+        _MoreIcon = ImageVector.Builder(
+            name = "MoreIcon",
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
@@ -48,8 +48,8 @@ val More: ImageVector
             }
         }.build()
 
-        return _More!!
+        return _MoreIcon!!
     }
 
-private var _More: ImageVector? = null
+private var _MoreIcon: ImageVector? = null
 
