@@ -66,18 +66,18 @@ fun Campus(
 
         Row(
             modifier = modifier.fillMaxWidth().bottomBorder(0.2f, Color.White.copy(alpha = 0.20f)).background(
-            backgroundColor
-        ).clickable { onClick() }.pointerInput(Unit) {
-            awaitPointerEventScope {
-                while (true) {
-                    val event = awaitPointerEvent()
-                    when (event.type) {
-                        PointerEventType.Enter -> isHovered = true
-                        PointerEventType.Exit -> isHovered = false
+                backgroundColor
+            ).clickable { onClick() }.pointerInput(Unit) {
+                awaitPointerEventScope {
+                    while (true) {
+                        val event = awaitPointerEvent()
+                        when (event.type) {
+                            PointerEventType.Enter -> isHovered = true
+                            PointerEventType.Exit -> isHovered = false
+                        }
                     }
                 }
-            }
-        }.padding(horizontal = horizontalPadding, vertical = verticalPadding),
+            }.padding(horizontal = horizontalPadding, vertical = verticalPadding),
             horizontalArrangement = Arrangement.spacedBy(20.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -115,9 +115,13 @@ fun Campus(
 
             Row(horizontalArrangement = Arrangement.spacedBy(20.dp)) {
                 if (!isSm) {
-                    IconButton(icon = PlusIcon, contentDescription = "Plus Icon", onClick = onClickPlus)
+                    IconButton(
+                        icon = IconSource.Vector(PlusIcon),
+                        contentDescription = "Plus Icon",
+                        onClick = onClickPlus
+                    )
                 }
-                IconButton(icon = MoreIcon, contentDescription = "More Icon", onClick = onClickMore)
+                IconButton(icon = IconSource.Vector(MoreIcon), contentDescription = "More Icon", onClick = onClickMore)
             }
 
         }

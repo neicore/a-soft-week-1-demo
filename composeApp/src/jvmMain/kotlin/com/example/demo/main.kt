@@ -9,8 +9,8 @@ import androidx.compose.ui.window.application
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Habari",
-        state = WindowState(size = DpSize(460.dp,800.dp)),
+        title = "Habari Kotlin",
+        state = WindowState(size = DpSize(800.dp,800.dp)),
     ) {
         App()
     }

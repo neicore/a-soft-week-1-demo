@@ -6,11 +6,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.demo.roles.Campus
 import com.example.demo.roles.CampusData
 import com.example.demo.roles.Modal
+import com.example.demo.roles.ModalAction
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 val Campuses = listOf(
@@ -27,10 +29,10 @@ val Campuses = listOf(
 @Preview
 fun App() {
     var showModal by remember { mutableStateOf(false) }
-
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier = Modifier.background(Color(0xFF161616)).safeContentPadding().fillMaxSize(),
+            modifier = Modifier.background(Color(0xFF161616)).safeContentPadding().fillMaxSize()
+                .then(if (showModal) Modifier.blur(7.5.dp) else Modifier),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -58,7 +60,13 @@ fun App() {
         }
 
         if (showModal) {
-            Modal(onDismiss = { showModal = false }) {
+            Modal(
+                onDismiss = { showModal = false },
+                title = "Assign Roles to Amani Hamduni",
+                primaryAction = ModalAction(name = "Assign Selected", onClick = {}),
+                secondaryAction = ModalAction(name = "Cancel", onClick = { showModal = false }),
+            ) {
+//                content
                 Text("Hello modal", color = Color.White)
             }
         }
