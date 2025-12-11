@@ -1,4 +1,6 @@
-package com.example.demo
+package com.example.demo.greeting
+
+import com.example.demo.getPlatform
 
 class Greeting {
     private val platform = getPlatform()

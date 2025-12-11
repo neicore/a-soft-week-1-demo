@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.quadrant
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

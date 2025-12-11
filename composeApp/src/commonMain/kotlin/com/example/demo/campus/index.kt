@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.campus
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.EaseOut

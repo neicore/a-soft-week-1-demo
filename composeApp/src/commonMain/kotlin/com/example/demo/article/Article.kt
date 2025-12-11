@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.article
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

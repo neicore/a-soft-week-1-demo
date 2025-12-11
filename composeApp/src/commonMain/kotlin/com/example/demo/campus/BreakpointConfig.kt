@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.campus
 
 import androidx.compose.ui.unit.dp
 
