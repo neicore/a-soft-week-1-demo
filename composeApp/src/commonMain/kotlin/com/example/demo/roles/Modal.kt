@@ -25,7 +25,7 @@ import demo.composeapp.generated.resources.cancel_icon
 import org.jetbrains.compose.resources.painterResource
 
 data class ModalAction(
-    val name: String, val onClick: () -> Unit
+    val name: String, val onClick: () -> Unit, val enabled: Boolean = true
 )
 
 @Composable
@@ -56,19 +56,18 @@ fun Modal(
                 Row(
                     verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-//                    Bila box inanizingua, ile container ya nje haikai, icon inakua shrunk
-                    Box(
-                        modifier = Modifier.size(48.dp).clip(RoundedCornerShape(6.dp))
+
+                    Icon(
+                        painter = painterResource(Res.drawable.account_setting_filled),
+                        contentDescription = "Account Settings Filled",
+                        tint = Color(0xFFD18C27),
+                        modifier = Modifier.clip(RoundedCornerShape(6.dp))
+//                    compositeOver for mixing colors
                             .background(Color(0xFF000000).copy(alpha = 0.10f)).background(Color(0xFF1D2430))
-                            .padding(8.dp), contentAlignment = Alignment.Center
-                    ) {
-                        Icon(
-                            painter = painterResource(Res.drawable.account_setting_filled),
-                            contentDescription = "Account Settings Filled",
-                            tint = Color(0xFFD18C27),
-                            modifier = Modifier.size(24.dp),
-                        )
-                    }
+                            .padding(12.dp).size(24.dp)
+                    )
+
+
 
                     Text(text = title, fontSize = 18.sp, color = Color.White)
                 }
@@ -97,14 +96,10 @@ fun Modal(
                     )
                 ).padding(16.dp),
             ) {
-                val primaryBg = Color.White
-                val secondaryBg = Color.White.copy(alpha = 0.20f)
-
                 Button(
                     onClick = secondaryAction.onClick, colors = ButtonDefaults.buttonColors(
-                        containerColor = secondaryBg,
+                        containerColor = Color.White.copy(alpha = 0.20f),
                         contentColor = Color.White,
-                        disabledContainerColor = secondaryBg,
                     ),
 //                    border = BorderStroke(1.dp, Color(0xFFFFF9F9)),
                     interactionSource = remember { MutableInteractionSource() }) {
@@ -113,8 +108,12 @@ fun Modal(
 
                 Button(
                     onClick = primaryAction.onClick, colors = ButtonDefaults.buttonColors(
-                        containerColor = primaryBg, contentColor = Color(0xCC15181D), disabledContentColor = primaryBg
-                    )
+                        containerColor = Color.White,
+                        contentColor = Color(0xCC15181D),
+                        disabledContainerColor = Color.White.copy(alpha = 0.5f),
+                        disabledContentColor = Color(0xCC15181D).copy(alpha = 0.60f)
+                    ),
+                    enabled = primaryAction.enabled
                 ) {
                     Text(primaryAction.name, fontWeight = FontWeight.Bold)
                 }

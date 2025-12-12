@@ -65,7 +65,8 @@ fun Campus(
         )
 
         Row(
-            modifier = modifier.fillMaxWidth().bottomBorder(0.2f, Color.White.copy(alpha = 0.20f)).background(
+            modifier = modifier.fillMaxWidth().bottomBorder(0.2f, Color.White)
+                .bottomBorder(0.2f, Color.White.copy(alpha = 0.2f)).background(
                 backgroundColor
             ).clickable { onClick() }.pointerInput(Unit) {
                 awaitPointerEventScope {
@@ -114,13 +115,13 @@ fun Campus(
             }
 
             Row(horizontalArrangement = Arrangement.spacedBy(20.dp)) {
-                if (!isSm) {
+                if (!isSm)
                     IconButton(
                         icon = IconSource.Vector(PlusIcon),
                         contentDescription = "Plus Icon",
                         onClick = onClickPlus
                     )
-                }
+
                 IconButton(icon = IconSource.Vector(MoreIcon), contentDescription = "More Icon", onClick = onClickMore)
             }
 
